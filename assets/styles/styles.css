@@ -71,10 +71,6 @@ button {
   display: none;
 }
 
-.btn {
-  border-radius: 100%;
-}
-
 button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -121,17 +117,6 @@ button:hover {
           align-items: center;
 }
 
-.icono {
-  max-height: 60px;
-  background-color: whitesmoke;
-  border-radius: 100%;
-  padding: 4px;
-}
-
-.icono:hover {
-  cursor: pointer;
-}
-
 .cart {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,30 +124,113 @@ button:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.cart:hover > .containerA {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 70px;
+  right: 0px;
 }
 
 .cartCount {
-  color: black;
-  position: absolute;
-  background-color: whitesmoke;
-  margin-left: 3px;
+  color: whitesmoke;
   font-size: 18px;
   border-radius: 100%;
 }
 
-.totalPrice {
-  color: white;
-  text-decoration: none;
+.icono {
+  height: 70px;
+  background-color: whitesmoke;
+  border-radius: 100%;
+  padding: 3px;
+}
+
+.icono:hover {
+  cursor: pointer;
+}
+
+.containerA {
+  display: none;
+  position: absolute;
+  background-color: white;
+  height: auto;
+  width: 500px;
+  padding: 10px;
+  border: 3px solid #6fdf53;
+}
+
+.cartImgContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+.cartImgContainer > p {
+  color: black;
+}
+
+.cartImg {
+  height: 50px;
+}
+
+.totalPrice {
+  margin-left: 10px;
+  color: white;
 }
 
 .totalPrice:hover {
   cursor: pointer;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: 0px solid transparent;
+  border-radius: 10%;
+  padding: 4px 10px;
+  margin: 10px;
+}
+
+.subCartBtns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+.count {
+  color: black;
 }
 
 footer {

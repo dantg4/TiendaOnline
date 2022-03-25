@@ -5,7 +5,6 @@
     padding: 0 40px
     background-color: black
 
-
 .RazerLogoImg
     height: 100%
     margin-right: 40px
@@ -17,32 +16,81 @@
     justify-content: center
     align-items: center
 
+.cart
+    display: flex
+    justify-content: center
+    margin-bottom: 10px
+
+.cart:hover > .containerA
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    top: 70px
+    right: 0px
+
+.cartCount
+    color: whitesmoke
+    font-size: 18px
+    border-radius: 100%
+
 .icono
-    max-height: 60px
+    height: 70px
     background-color: whitesmoke
     border-radius: 100%
-    padding: 4px
+    padding: 3px
 
 .icono:hover
     cursor: pointer
 
-.cart
-    display: flex
-    justify-content: center
-    align-items: flex-start
-
-.cartCount
-    color: black
+.containerA
+    display: none
     position: absolute
-    background-color: whitesmoke
-    margin-left: 3px
-    font-size: 18px
-    border-radius: 100%
+    background-color: white
+    height: auto
+    width: 500px
+    padding: 10px
+    border: 3px solid #6fdf53
+
+.cartImgContainer
+    display: flex
+    column-gap: 10px
+    border: 1px solid black
+    margin-top: 10px
+    
+
+.cartImgContainer > p
+    color: black
+
+.cartImg
+    height: 50px
+    
 
 .totalPrice
+    margin-left: 10px
     color: white
-    text-decoration: none
-    display: flex
 
 .totalPrice:hover
     cursor: pointer
+
+button
+    background-color: $secondColor
+    color: white
+    border: 0px solid transparent
+    border-radius: 10%
+    padding: 4px 10px
+    margin: 10px
+
+.subCartBtns
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: 10px
+
+button:hover
+    transform: scale(1.1)
+    transition: all 0.1s
+    cursor: pointer
+
+.count
+    color: black

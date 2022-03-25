@@ -1,50 +1,64 @@
 window.addEventListener("DOMContentLoaded", ()=>{
-    toggleBuyBtn()
+    getAndChangeCards()
 })
 
-const product = Array.from(document.querySelectorAll(".product"))
-let counterProduct = 0
 
-const toggleBuyBtn = ()=>{
+const getAndChangeCards = ()=>{
+    const product = Array.from(document.querySelectorAll(".product"))
+
     for(let i = 0; i<product.length ; i++){
         product[i].addEventListener("click", (e)=>{
+            const cartElements= getElements(product[i])
+            
             if(e.target.className.includes("buyBtn")){
-                const count = product[i].querySelector(".count")
-                const buyBtn = product[i].querySelector(".buyBtn")
-                const btns = product[i].querySelector(".btns")
-                buyBtn.classList.add("hide")
-                btns.classList.remove("hide")
-                count.innerText = counterProduct+1
-                
-                minProducts(product[i], count, buyBtn, btns)
-                addProducts(product[i], count)
-
-
-             }
+                toggleBtns(cartElements)
+            }
+            if(e.target.className.includes("btnMin")){
+                minProducts(cartElements)
+            }
+            if(e.target.className.includes("btnAdd")){
+                addProducts(cartElements)
+            }
         })
     }
 }
-const minProducts = (product, count, buyBtn, btns)=>{
-    
-    const btnMin = product.querySelector(".btnMin")
-    btnMin.addEventListener("click", ()=>{
-        if(counterProduct > 0){
-            counterProduct -= 1
-            count.innerText = counterProduct
-        }else{
-            buyBtn.classList.remove("hide")
-            btns.classList.add("hide")
-        }
-        console.log("minProducts", counterProduct);
-    })
+
+const getElements = (product)=>{
+    const elements = {
+    count : product.querySelector(".count"),
+    buyBtn : product.querySelector(".buyBtn"),
+    btns : product.querySelector(".btns"),
+    counterProduct : Number(product.querySelector(".count").innerText),
+    cartCount : document.getElementById("cartCount"),
+    cartCountNumber : Number(document.getElementById("cartCount").innerText),
+    }
+    return elements
 }
 
-const addProducts = (product, count)=>{
+const minProducts = ({counterProduct, count, buyBtn, btns, cartCount, cartCountNumber})=>{
+    if(counterProduct > 1){
+        counterProduct -= 1
+        count.innerText = counterProduct
+        cartCountNumber -= 1
+        cartCount.innerText = cartCountNumber
+    }else{
+        buyBtn.classList.remove("hide")
+        btns.classList.add("hide")
+        cartCountNumber -= 1
+        cartCount.innerText = cartCountNumber
+    }
+}
+
+const addProducts = ({counterProduct, count, cartCount, cartCountNumber})=>{
+    counterProduct += 1
+    count.innerText = counterProduct
+    cartCountNumber += 1
+    cartCount.innerText = cartCountNumber
     
-    const btnAdd = product.querySelector(".btnAdd")
-    btnAdd.addEventListener("click", ()=>{
-            counterProduct += 1
-            count.innerText = counterProduct
-            console.log("addproducts", counterProduct);
-    })
+}
+const toggleBtns = ({buyBtn, btns, cartCount, cartCountNumber})=>{
+    buyBtn.classList.add("hide")
+    btns.classList.remove("hide")
+    cartCountNumber += 1
+    cartCount.innerText = cartCountNumber
 }
